@@ -1,0 +1,18 @@
+{{#unless user}}
+    <div class="jumbotron mt-4 text-center">
+        <h1 class="display-5">Gestión de una tienda de ropa</h1>
+        <h1 class="display-5">Registrate o logeate para ver los productos</h1>
+    </div>
+{{else}}
+    {{#ifEquals currentUsername 'admin'}}
+        <div class="jumbotron mt-4 text-center">
+            <h1 class="display-5">Gestión de una tienda de ropa</h1>
+            <h1 class="display-5">Eres el admin, por lo que vas a poder crear, eliminar y actualizar los productos</h1>
+        </div>
+    {{else}}
+        <div class="jumbotron mt-4 text-center">
+            <h1 class="display-5">Gestión de una tienda de ropa</h1>
+            <h1 class="display-5">Eres un cliente, por lo que solo vas a poder ver los productos disponibles</h1>
+        </div>
+    {{/ifEquals}}
+{{/unless}}

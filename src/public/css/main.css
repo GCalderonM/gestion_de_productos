@@ -1,0 +1,12 @@
+body {
+    background: #16a085;
+}
+
+.deleteBtn {
+    border: none;
+    background: none;
+}
+
+.deleteBtn:focus {
+    outline: none;
+}

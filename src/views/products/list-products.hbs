@@ -1,0 +1,51 @@
+<div class="jumbotron mt-4 text-center">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Product code</th>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Product price</th>
+                    <th scope="col">Product stock</th>
+                    {{#ifEquals currentUsername 'admin'}}
+                    <th scope="col">Actions</th>
+                    {{/ifEquals}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#ifEquals currentUsername 'admin'}}
+                    {{#each products }}
+                        <tr>
+                            <th>{{prod_cod}}</th>
+                            <td>{{prod_name}}</td>
+                            <td>{{prod_price}}</td>
+                            <td>{{prod_stock}}</td>
+                            <td class="d-flex justify-content-between align-content-center">
+                                <a style="text-decoration: none;" href="/products/edit/{{_id}}">
+                                    <i class="bi-pen-fill text-warning"></i>
+                                </a>
+                                <form style="width: 15px;" action="/products/delete/{{_id}}" method="POST">
+                                    <button type="submit" class="deleteBtn">
+                                        <i class="bi-trash-fill text-danger"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                {{else}}
+                    {{#each products }}
+                        <tr>
+                            <th>{{prod_cod}}</th>
+                            <td>{{prod_name}}</td>
+                            <td>{{prod_price}}</td>
+                            <td>{{prod_stock}}</td>
+                        </tr>
+                    {{/each}}
+                {{/ifEquals}}
+            </tbody>
+        </table>
+    </div>
+    {{#ifEquals currentUsername 'admin'}}
+        <a href="/products/add" class="btn btn-primary">Añadir producto</a>
+    {{/ifEquals}}
+</div>
